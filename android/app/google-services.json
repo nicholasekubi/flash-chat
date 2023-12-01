@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "27074183012",
+    "project_id": "flash-chat-8293b",
+    "storage_bucket": "flash-chat-8293b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27074183012:android:ba94b08f6e4d5ca4994471",
+        "android_client_info": {
+          "package_name": "co.nicklestudio.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "27074183012-chbraefmkdsv1a37b95lnkhlo8aika1t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB63DwBjf7ETNUjiZN3r_y98h4bxwb2Vpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "27074183012-chbraefmkdsv1a37b95lnkhlo8aika1t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

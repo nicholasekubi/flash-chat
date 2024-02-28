@@ -15,8 +15,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
-  String email;
-  String password;
+  late String email;
+  late String password;
   bool loadingIndicator = false;
 
   @override
@@ -81,16 +81,32 @@ class _LoginScreenState extends State<LoginScreen> {
                     });
                     try {
                       final user = await _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
+                        email: email,
+                        password: password,
+                      );
+
+                      // Check if the user exists
                       if (user != null) {
+                        // Navigate to the ChatScreen upon successful login
                         Navigator.pushNamed(context, ChatScreen.id);
-                        print(user);
-                        setState(() {
-                          loadingIndicator = false;
-                        });
+                      } else {
+                        // Handle the case when user is null
+                        print('User is null');
                       }
+
+                      // Reset loading state
+                      setState(() {
+                        loadingIndicator = false;
+                      });
                     } catch (e) {
-                      print(e);
+                      // Catch and print any errors that occur during authentication
+                      print('Error during sign in: $e');
+                      print('An error occurred. Please try again.');
+
+                      // Reset loading state
+                      setState(() {
+                        loadingIndicator = false;
+                      });
                     }
                   },
                   colour: Colors.lightBlueAccent,

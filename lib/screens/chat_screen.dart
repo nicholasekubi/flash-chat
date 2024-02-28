@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final _firestore = FirebaseFirestore.instance;
-User loggedInUser;
+late User loggedInUser;
 
 class ChatScreen extends StatefulWidget {
   static const id = 'chat';
@@ -16,7 +16,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final _auth = FirebaseAuth.instance;
-  String message;
+  late String message;
   final messageTextController = TextEditingController();
 
   @override
@@ -114,7 +114,7 @@ class MessageStream extends StatelessWidget {
               ),
             );
           }
-          final List messages = snapshot.data.docs;
+          final List messages = snapshot.data!.docs;
           List<MessageBubble> messageBubbles = [];
           for (var message in messages.reversed) {
             final messageText = message.data()['text'];
@@ -138,7 +138,7 @@ class MessageStream extends StatelessWidget {
 }
 
 class MessageBubble extends StatelessWidget {
-  MessageBubble({this.text, this.sender, this.isMe});
+  MessageBubble({required this.text, required this.sender, required this.isMe});
 
   final String text;
   final String sender;

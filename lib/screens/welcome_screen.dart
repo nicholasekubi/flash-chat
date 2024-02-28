@@ -13,9 +13,9 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
-  AnimationController controller;
-  CurvedAnimation animationCurve;
-  Animation animationTween;
+  late AnimationController controller;
+  late CurvedAnimation animationCurve;
+  late Animation animationTween;
 
   @override
   void initState() {
@@ -80,7 +80,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     TypewriterAnimatedText(
                       'Flash Chat',
                       textStyle: TextStyle(
-                          fontSize: 45.0,
+                          fontSize: MediaQuery.sizeOf(context).width / 9,
                           fontWeight: FontWeight.w900,
                           color: Colors.grey.shade700),
                       speed: Duration(milliseconds: 190),
